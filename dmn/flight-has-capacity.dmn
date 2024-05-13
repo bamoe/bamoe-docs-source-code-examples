@@ -5,7 +5,7 @@
       <typeRef>string</typeRef>
     </itemComponent>
   </itemDefinition>
-  <itemDefinition id="_C041D4AC-CB51-40D0-8879-DB51FDA5EB1D" name="tFilght" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+  <itemDefinition id="_C041D4AC-CB51-40D0-8879-DB51FDA5EB1D" name="tFlight" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <itemComponent id="_93C9A060-419D-46DE-925E-D9C0A8253F0C" name="Capacity" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <typeRef>number</typeRef>
     </itemComponent>
@@ -72,7 +72,7 @@
     </literalExpression>
   </decision>
   <inputData name="Flight" id="_83553B6E-2C2D-4F5D-800F-3E48A26BB515">
-    <variable name="Flight" id="_E2DB7F9F-B669-4063-85B7-5943D5B2450E" typeRef="tFilght" />
+    <variable name="Flight" id="_E2DB7F9F-B669-4063-85B7-5943D5B2450E" typeRef="tFlight" />
   </inputData>
   <inputData name="Rebooked list" id="_02F0B3DE-25A7-4439-AECF-5426452274A1">
     <variable name="Rebooked list" id="_BED951FB-4E92-4865-B965-F447A1482AD8" typeRef="tPassengerTable" />
