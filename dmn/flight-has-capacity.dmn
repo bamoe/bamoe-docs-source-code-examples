@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_7785B66E-B0F4-473E-84DA-82D1EF89D006" id="_BD44F978-12D8-45E6-9E15-9EC830771AEB" name="DMN_AEC0C0CF-C716-491B-8B2F-F7AD62330916" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
-  <itemDefinition id="_BB82C411-E1A1-4ABB-95FA-D48438AF09E8" name="tPassengerTable" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+  <itemDefinition id="_BB82C411-E1A1-4ABB-95FA-D48438AF09E8" name="tRebookedFlights" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <itemComponent id="_1A672F6E-8172-4B6E-88FD-53DE6AD52D68" name="Flight Number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <typeRef>string</typeRef>
     </itemComponent>
@@ -17,10 +17,10 @@
     <variable name="has capacity" id="_23EADBD1-90E4-4E3D-B778-E0388C2F7531" typeRef="boolean" />
     <encapsulatedLogic id="_61F3594A-9AB3-4B35-8376-C7285AB18BF5" kind="FEEL" label="has capacity" typeRef="boolean">
       <formalParameter id="_0FB5C070-25AC-42FA-BC98-3AB1E98AFE8D" name="flight" typeRef="tFlight" />
-      <formalParameter id="_D71C5780-8346-436D-85A4-50D5A4E66084" name="rebooked list" typeRef="tPassengerTable" />
+      <formalParameter id="_D71C5780-8346-436D-85A4-50D5A4E66084" name="rebooked list" typeRef="tRebookedFlights" />
       <context id="_3591FC67-8A44-4E38-8A89-79EACFEF3627" typeRef="boolean" label="Return">
         <contextEntry id="_3BC7BA57-350B-4A32-A70F-D8FEEF94754C">
-          <variable id="_73A97498-7980-4005-88DE-50E961D6CE6B" name="rebooked list per flight" typeRef="tPassengerTable" />
+          <variable id="_73A97498-7980-4005-88DE-50E961D6CE6B" name="rebooked list per flight" typeRef="tRebookedFlights" />
           <filter id="_D041B957-7EE3-4888-9AB8-629D6CB6B3AF" label="rebooked list per flight">
             <in id="_46659CCF-3A7F-45D6-83CB-F79EF22DAC93">
               <literalExpression id="_38FAED08-B9D7-4A96-A3F5-ED86C7B14E22" typeRef="&lt;Undefined&gt;" label="Expression Name">
@@ -38,7 +38,7 @@
           <conditional id="_4B0C53B1-AB7D-42B8-B79C-B2DCF24FA940" label="Return">
             <if id="_31DAD263-7069-4F84-B5A7-23023A94207F">
               <literalExpression id="_838AC5EC-F8F3-49BD-A2D8-0D09B72B372E" typeRef="&lt;Undefined&gt;" label="Expression Name">
-                <text>flight.Capacity &gt; count(rebooked list per flight)</text>
+                <text>flight.Capacity &gt;= count(rebooked list per flight)</text>
               </literalExpression>
             </if>
             <then id="_223FB6B8-1C22-4923-A06E-395076E3108E">
@@ -75,7 +75,7 @@
     <variable name="Flight" id="_E2DB7F9F-B669-4063-85B7-5943D5B2450E" typeRef="tFlight" />
   </inputData>
   <inputData name="Rebooked list" id="_02F0B3DE-25A7-4439-AECF-5426452274A1">
-    <variable name="Rebooked list" id="_BED951FB-4E92-4865-B965-F447A1482AD8" typeRef="tPassengerTable" />
+    <variable name="Rebooked list" id="_BED951FB-4E92-4865-B965-F447A1482AD8" typeRef="tRebookedFlights" />
   </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_0DF9A7D6-501A-4F2F-B0F7-75C0567F4007" name="Default DRD" useAlternativeInputDataShape="false">
