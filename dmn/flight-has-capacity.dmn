@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_7785B66E-B0F4-473E-84DA-82D1EF89D006" id="_BD44F978-12D8-45E6-9E15-9EC830771AEB" name="DMN_AEC0C0CF-C716-491B-8B2F-F7AD62330916" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_7785B66E-B0F4-473E-84DA-82D1EF89D006" id="_BD44F978-12D8-45E6-9E15-9EC830771AEB" name="DMN_AEC0C0CF-C716-491B-8B2F-F7AD62330916">
   <itemDefinition id="_BB82C411-E1A1-4ABB-95FA-D48438AF09E8" name="tRebookedFlights" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <itemComponent id="_1A672F6E-8172-4B6E-88FD-53DE6AD52D68" name="Flight Number" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
       <typeRef>string</typeRef>
@@ -77,6 +77,13 @@
   <inputData name="Rebooked list" id="_02F0B3DE-25A7-4439-AECF-5426452274A1">
     <variable name="Rebooked list" id="_BED951FB-4E92-4865-B965-F447A1482AD8" typeRef="tRebookedFlights" />
   </inputData>
+  <textAnnotation id="_97A2BED1-ADD7-4FB5-8EFE-2C1EF132072D">
+    <text>&apos;has capacity&apos; counts the rebooked flights (Rebooked list) targeting the flight (Flight) and then decides, if the flight has a capacity for these rebooked flights.</text>
+  </textAnnotation>
+  <association id="_F21A97AA-3997-4DC2-8C49-270B5C1808BC" associationDirection="Both">
+    <sourceRef href="#_B0851FBB-28F4-4ED5-8973-1D98AB0E500C" />
+    <targetRef href="#_97A2BED1-ADD7-4FB5-8EFE-2C1EF132072D" />
+  </association>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_0DF9A7D6-501A-4F2F-B0F7-75C0567F4007" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
@@ -127,6 +134,13 @@
       <dmndi:DMNEdge id="_53CD6EEE-A043-4E22-BDAE-059292173F52" dmnElementRef="_EF50E635-6DFF-4828-8ADE-1ADD6554CA23" sourceElement="_D871628E-06F2-487F-A4AD-04C95806956F" targetElement="_5E51CC47-FD3E-4C21-A957-30D087549C7A">
         <di:waypoint x="540" y="360" />
         <di:waypoint x="540" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_61C6BB81-E2B2-48B7-B886-290200B0E3A2" dmnElementRef="_97A2BED1-ADD7-4FB5-8EFE-2C1EF132072D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="360" y="-60" width="440" height="120" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_702F01A9-9993-494D-BB76-44BDEE649DDA-AUTO-TARGET" dmnElementRef="_F21A97AA-3997-4DC2-8C49-270B5C1808BC" sourceElement="_9039DD34-FDB3-47ED-AA62-6AA9117000DF" targetElement="_61C6BB81-E2B2-48B7-B886-290200B0E3A2">
+        <di:waypoint x="200" y="140" />
+        <di:waypoint x="580" y="0" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
