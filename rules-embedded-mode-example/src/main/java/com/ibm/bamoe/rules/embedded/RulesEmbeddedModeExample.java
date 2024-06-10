@@ -10,14 +10,19 @@ import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.StatelessKieSession;
 import org.kie.internal.command.CommandFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RulesEmbeddedModeExample {
+
+        private static final Logger logger = LoggerFactory.getLogger(RulesEmbeddedModeExample.class);
+
 
     public static void main(String[] args) {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
 
-        System.out.println("-----> Now we execute rules in the stateful session <-----");
+        logger.info("-----> Now we execute rules in the stateful session <-----");
 
         KieSession kieSession = kieContainer.newKieSession();
         kieSession.addEventListener(new DebugRuleRuntimeEventListener());
@@ -31,11 +36,11 @@ public class RulesEmbeddedModeExample {
             ))
         );
 
-        System.out.println(executionResults.getResults().get("application"));
+        logger.info("application: " + executionResults.getResults().get("application"));
 
         kieSession.dispose();
 
-        System.out.println("-----> Now we execute rules in the stateless session <-----");
+        logger.info("-----> Now we execute rules in the stateless session <-----");
 
         StatelessKieSession statelessKieSession = kieContainer.newStatelessKieSession();
         statelessKieSession.addEventListener(new DebugRuleRuntimeEventListener());
@@ -47,6 +52,6 @@ public class RulesEmbeddedModeExample {
                 new SetActiveAgendaGroup("applicationGroup")            ))
         );
 
-        System.out.println(statelessExecutionResults.getResults().get("application"));
+        logger.info("application: " + statelessExecutionResults.getResults().get("application"));
     }
 }

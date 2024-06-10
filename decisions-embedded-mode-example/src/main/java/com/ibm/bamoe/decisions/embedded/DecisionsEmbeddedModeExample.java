@@ -1,7 +1,5 @@
 package com.ibm.bamoe.decisions.embedded;
 
-import java.util.Arrays;
-
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieRuntimeFactory;
@@ -10,14 +8,19 @@ import org.kie.dmn.api.core.DMNDecisionResult;
 import org.kie.dmn.api.core.DMNModel;
 import org.kie.dmn.api.core.DMNResult;
 import org.kie.dmn.api.core.DMNRuntime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DecisionsEmbeddedModeExample {
 
+    private static final Logger logger = LoggerFactory.getLogger(DecisionsEmbeddedModeExample.class);
+
     public static void main(String[] args) {
+
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
 
-        System.out.println("-----> Now we execute DMN <-----");
+        logger.info("-----> Now we execute DMN <-----");
 
         DMNRuntime dmnRuntime = KieRuntimeFactory.of(kieContainer.getKieBase()).get(DMNRuntime.class);
 
@@ -32,7 +35,7 @@ public class DecisionsEmbeddedModeExample {
         DMNResult dmnResult = dmnRuntime.evaluateAll(dmnModel, dmnContext);  
 
         for (DMNDecisionResult dr : dmnResult.getDecisionResults()) {  
-            System.out.println(
+            logger.info(
                 "Decision: '" + dr.getDecisionName() + "', " +
                 "Result: " + dr.getResult());        
          }
