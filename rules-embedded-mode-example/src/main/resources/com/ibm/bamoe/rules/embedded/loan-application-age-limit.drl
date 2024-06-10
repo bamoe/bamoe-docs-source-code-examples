@@ -1,7 +1,7 @@
-package com.ibm.bamoe.decisions.embedded; 
+package com.ibm.bamoe.rules.embedded; 
 
-import com.ibm.bamoe.decisions.embedded.Applicant;
-import com.ibm.bamoe.decisions.embedded.LoanApplication;
+import com.ibm.bamoe.rules.embedded.Applicant;
+import com.ibm.bamoe.rules.embedded.LoanApplication;
 
 rule "Underage"
   salience 15
